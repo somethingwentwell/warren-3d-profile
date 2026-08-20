@@ -21,7 +21,7 @@ export const CONFIG = {
   // type drives the icon; `copy` makes the chip copy-to-clipboard instead of a link
   contacts: [
     { type: 'email',    label: 'warren@evomap.ai', href: 'mailto:warren@evomap.ai' },
-    { type: 'whatsapp', label: 'WhatsApp',         href: 'https://wa.me/+85295415141' },
+    { type: 'whatsapp', label: 'WhatsApp',         href: 'https://wa.me/85295415141' },
     { type: 'wechat',   label: 'WeChat · xwarren', copy: 'xwarren', toast: 'WeChat ID copied — xwarren' },
     { type: 'linkedin', label: 'LinkedIn',         href: 'https://hk.linkedin.com/in/warren-wong' },
     { type: 'github',   label: 'GitHub',           href: 'https://github.com/somethingwentwell' },
@@ -73,13 +73,13 @@ export const CONFIG = {
     },
     {
       id: 'exp-gitlab',
-      company: 'Jihu GitLab',
+      company: 'GitLab',
       place: 'Hong Kong (Remote)',
       role: 'Senior Solution Architect',
       date: 'Jan 2022 — Feb 2024',
       logo: 'assets/logos/gitlab.svg',
       chip: true,
-      tip: 'Jihu GitLab · Senior Solution Architect',
+      tip: 'GitLab · Senior Solution Architect',
       bullets: [
         'Launched the GitLab SaaS platform (gitlab.hk) for the Hong Kong market',
         'Contributed to core GenAI feature development on the global GitLab GenAI team',
