@@ -16,6 +16,8 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+/* mobile: page is locked to the stage until the scroll button is tapped */
+body.is-locked{overflow:hidden;height:100svh}
 body{
   font-family:var(--font-display);
   background:var(--bg);
@@ -359,9 +361,11 @@ main{max-width:880px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
 
 /* ══ MOBILE ═════════════════════════════════════════════════ */
 @media (max-width:820px){
-  .stage{height:auto;min-height:100svh;display:flex;flex-direction:column;padding-top:1rem}
-  /* the 3D view keeps its left/right rails on mobile too */
-  .stage__view{display:block;position:relative;order:2;width:100%;height:58svh;margin-top:.6rem}
+  .stage{height:100svh;min-height:0;display:flex;flex-direction:column;padding-top:1rem}
+  .hud--tl,.hud--tr,.hud--bottom{flex-shrink:0}
+  /* the 3D view keeps its left/right rails on mobile too; it flexes so the
+     bottom strip (with the scroll button) always stays on screen */
+  .stage__view{display:block;position:relative;order:2;width:100%;flex:1 1 0;min-height:200px;margin-top:.6rem}
   #avatar-canvas{position:absolute;inset:0;width:100%;height:100%}
   .hud--tl{position:relative;inset:auto;transform:none;order:1;margin:0 1rem;max-width:none;display:flex;flex-direction:column;align-items:flex-start}
   .hud--tr{position:relative;inset:auto;transform:rotate(0);order:3;margin:.6rem 1rem 0;max-width:none;flex-direction:row;align-items:center;justify-content:space-between}

@@ -499,6 +499,21 @@ if (renderer) {
   requestAnimationFrame(frame);
 }
 
+/* mobile: lock page scroll until the bottom scroll button is tapped;
+   scrolling back to the top locks it again */
+{
+  const mq = window.matchMedia('(max-width: 820px)');
+  const scrollBtn = document.querySelector('.hud__scroll');
+  let unlocked = false;
+  const applyLock = () => document.body.classList.toggle('is-locked', mq.matches && !unlocked);
+  scrollBtn?.addEventListener('click', () => { unlocked = true; applyLock(); });
+  window.addEventListener('scroll', () => {
+    if (mq.matches && unlocked && window.scrollY <= 2) { unlocked = false; applyLock(); }
+  }, { passive: true });
+  mq.addEventListener('change', applyLock);
+  applyLock();
+}
+
 /* copy-to-clipboard chips + toast */
 const toast = document.getElementById('toast');
 let toastTimer;
