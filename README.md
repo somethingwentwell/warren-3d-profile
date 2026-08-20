@@ -1,5 +1,7 @@
 # Warren Wong — 3D Profile Site
 
+**Live: https://warrenwong.zeabur.app**
+
 Personal static profile site with a chunky low-poly Three.js avatar (hand-painted
 canvas textures, studio-paper backdrop). The avatar's head tracks the cursor and
 locks onto whichever edge component (contact chip, logo, sales card) you hover;
@@ -36,3 +38,25 @@ because `js/main.js` is an ES module.)
 - Content (titles, dates, links, sales-resources URL): `js/config.js`
 - Avatar look: `js/main.js` — `hairBlobs` for hair, `paintTex` painters for
   skin/tee/lips, `HEAD_SCALE` for proportions
+
+## Use as a template (agent skill)
+
+[`skill/3d-profile-website/SKILL.md`](skill/3d-profile-website/SKILL.md) is a
+Claude Code skill that walks an AI agent through building **your own** version
+of this site — your info, your avatar, your logos.
+
+How to use:
+
+1. Copy the skill into your project (or user) skills folder:
+
+   ```bash
+   mkdir -p .claude/skills && cp -r skill/3d-profile-website .claude/skills/
+   ```
+
+2. In Claude Code, ask for it — e.g.
+   *"use the 3d-profile-website skill to build my profile site, here's my CV
+   and a photo of me"* — or invoke it directly with `/3d-profile-website`.
+
+3. The skill covers: copying the template, rewriting `js/config.js` with your
+   content, sculpting the avatar (hair/skin/accessories) to match your photo,
+   local verification, and deploy options (GitHub Pages / Zeabur).
